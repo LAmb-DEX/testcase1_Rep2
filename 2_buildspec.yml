@@ -1,14 +1,20 @@
 version: 0.2
-#Creates artifact
+
 phases:
   install:
     runtime-versions:
       python: 3.8
     commands:
       - echo "Starting the build process..."
+  build:
+    commands:
+      - echo "Building the application..."
+  post_build:
+    commands:
+      - echo "Moving index.html"
 artifacts:
   files:
-    - html_appspec.yml
+    - appspec.yml
     - scripts/start_apache.sh
     - scripts/install_dependencies.sh
     - index.html
